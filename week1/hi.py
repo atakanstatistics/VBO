@@ -1,0 +1,1 @@
+print("Selam Ben Atakan. Geçmiş Bootcamp Notlarımı Tekrar Ediyorum.")

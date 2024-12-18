@@ -398,7 +398,7 @@ dictionary.get("REG")
 # Value Değiştirmek
 #######################
 
-["REG"] = 99
+#["REG"] = 99
 
 #######################
 # Tüm Key'lere Erişmek
@@ -740,6 +740,7 @@ standardization(10, 9)
 
 
 
+# iç içe fonksiyon kullanımı
 def all_calculation(varm, moisture, charge, p):
     a = calculate(varm, moisture, charge)
     b = standardization(a, p)
@@ -850,6 +851,7 @@ for student in students:
 
 
 salaries = [1000, 2000, 3000, 4000, 5000]
+type(salaries)
 
 for salary in salaries:
     print(salary)
@@ -859,11 +861,25 @@ for salary in salaries:
 2000 * 20 / 100 + 2000
 3000 * 20 / 100 + 3000
 
+
 def new_salary(x):
+    """
+
+    Parameters
+    ----------
+    x: maaş
+
+    Returns
+    -------
+    maaşı %20 oranında arttırarak geri döndürür
+
+    """
     return x * 20 / 100 + x
 
 
 new_salary(2000)
+help(new_salary)
+type(new_salary)
 
 
 for salary in salaries:
@@ -871,9 +887,32 @@ for salary in salaries:
 
 
 def raise_up(x):
+    """
+
+    Parameters
+    ----------
+    x: maaş
+
+    Returns
+    -------
+    maaşı %10 oranında arttırır
+
+    """
     print(x * 10 / 100 + x)
 
+#?raise_up
+
 def raise_down(x):
+    """
+
+    Parameters
+    ----------
+    x: maaş
+
+    Returns
+    -------
+    maaşa %20 zam
+    """
     print(x * 20 / 100 + x)
 
 
@@ -897,10 +936,13 @@ for salary in salaries:
         break
     print(salary)
 
+
 for salary in salaries:
     if salary == 3000:
         continue
     print(salary)
+
+
 
 number = 1
 
@@ -929,10 +971,25 @@ def alternating(string):
 
     print(new_string)
 
+# def harfbuyut(cumle):
+#
+#     yenicumle = ""
+#
+#     for cumle_index in range(len(cumle)):
+#         if cumle_index % 2 == 0:
+#             yenicumle += cumle[cumle_index].upper()
+#         else:
+#             yenicumle += cumle[cumle_index].lower()
+#     print(yenicumle)
+#
+# harfbuyut("Bu benim deneme olarak yaptığım kod")
+# harfbuyur("atakan")
+
+
 alternating("hi my name is john and i am learning python")
 
 
-alternating("mvk")
+alternating("Atakan")
 
 
 
@@ -947,25 +1004,32 @@ students = ["John", "Mark", "Venessa", "Mariam"]
 for student in students:
     print(student)
 
+
 for index, student in enumerate(students):
     print(index, student)
+
 
 A = []
 B = []
 
 
 for index, student in enumerate(students):
+    """ index değerinin 2 ile bölümünden kalan 0 ise çift sayı olur """
     if index % 2 == 0:
         A.append(student)
     else:
         B.append(student)
 
+print(A, B)
 
 #######################
 # Mülakat Sorusu
 #######################
 # divide_students işlemini 2 grubu tek bir listede return edecek bir fonksiyonla yapınız.
 students = ["John", "Mark", "Venessa", "Mariam"]
+type(students)
+
+Arkadaslar = ["Arda", "Akın", "Beril", "Enes", "Arzu", "Mert"]
 
 def divide_students(students):
     groups = [[], []]
@@ -979,12 +1043,13 @@ def divide_students(students):
 
 
 divide_students(students)
-
+divide_students(Arkadaslar)
 
 #######################
 # Enumerate'i Belirli Bir Index ile Kullanmak
 #######################
 
+"""İndexi belirli bir sayıdan başlatmak"""
 for index, student in enumerate(students, 1):
     print(index, student)
 
@@ -1047,22 +1112,31 @@ def summer(a, b):
 
 summer(1, 3) * 9
 
+# lambda a, b: a + b
+
 new_sum = lambda a, b: a + b
 new_sum(7, 8) * 9
 
 # MAP
-salaries = [1000, 2000, 3000, 4000, 5000]
-
 
 def new_salary(x):
     return x * 20 / 100 + x
 
-
 new_salary(1000)
+
+
+salaries = [1000, 2000, 3000, 4000, 5000]
 
 for salary in salaries:
     print(new_salary(salary))
 
+
+
+"""
+Salaries listesindeki değerleri al
+new_salary fonksiyonuna sok
+çıkan sonuçları liste halina getir.
+"""
 list(map(new_salary, salaries))
 list(map(lambda x: x * 20 / 100 + x, salaries))
 list(map(lambda x: x ** 2, salaries))
@@ -1079,8 +1153,7 @@ list(filter(lambda x: x % 2 == 0, list_store))
 from functools import reduce
 list_store = [1, 2, 3, 4]
 reduce(lambda a, b: a + b, list_store)
-
-
+reduce(lambda a, b: a * b, list_store)
 
 ###############################################
 # COMPREHENSIONS
@@ -1113,6 +1186,7 @@ for salary in salaries:
 
 [new_salary(salary * 2) if salary < 3000 else new_salary(salary) for salary in salaries]
 
+# [new_salary(salary * 2) if salary < 3000 else new_salary(salary) for salary in salaries]
 
 [salary * 2 for salary in salaries]
 
@@ -1207,6 +1281,7 @@ import seaborn as sns
 df = sns.load_dataset("car_crashes")
 df.columns
 
+
 for col in df.columns:
     print(col.upper())
 
@@ -1250,6 +1325,7 @@ df.columns = [col.upper() for col in df.columns]
 
 df.columns
 
+
 [col for col in df.columns if "INS" in col]
 
 ["FLAG_" + col for col in df.columns if "INS" in col]
@@ -1287,6 +1363,7 @@ df.columns = ["FLAG_" + col if "INS" in col else "NO_FLAG_" + col for col in df.
 #  'CAT_ABBREV']
 
 df = sns.load_dataset("car_crashes")
+
 
 [col for col in df.columns if df[col].dtype == "O"]
 
@@ -1326,11 +1403,16 @@ for col in num_cols:
     soz[col] = agg_list
 
 
+
+# for col in num_cols:
+#     print(col, agg_list)
+
 {col: agg_list for col in num_cols}
 
 
 new_dict = {col: agg_list for col in num_cols}
 
+# abbrev değişkenine göre tüm değerleri grupla
 df.groupby("abbrev").agg(new_dict)
 
 

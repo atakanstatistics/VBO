@@ -17,6 +17,10 @@
 # Adım 4: Konsolda şu kodu yazmalısın: python hi.py
 # Adım 5: Çıktını ekran görüntüsünü alıp grubunda paylaş.
 
+"""
+(base) PS C:\Users\rdn_a\Desktop\VBO> python hi.py
+Selam Ben Atakan. Geçmiş Bootcamp Notlarımı Tekrar Ediyorum.
+"""
 
 
 ###############################################
@@ -100,6 +104,7 @@ df.columns
 # Görev 1 Çözüm
 ###############################################
 
+["NUM_" + col.upper() if df[col].dtype != "O" else col.upper() for col in df.columns]
 
 ###############################################
 # Görev 2: İsminde "no" BARINDIRMAYAN değişkenlerin isimlerininin SONUNA "FLAG" yazınız.
@@ -124,6 +129,7 @@ df.columns
 # Görev 2 Çözüm
 ###############################################
 
+[col.upper() if "no" in col else col.upper() + "_FLAG" for col in df.columns]
 
 ###############################################
 # Görev 3: Aşağıda verilen değişken isimlerinden FARKLI olan değişkenlerin isimlerini seçerek yeni bir df oluşturunuz.
@@ -151,3 +157,15 @@ df.columns
 ###############################################
 # Görev 3 Çözüm
 ###############################################
+
+df.columns
+
+og_list = ["abbrev", "no_previous"]
+
+new_col = []
+
+new_col = [col for col in df.columns if col not in og_list]
+
+new_df = df[new_col]
+
+new_df.head()
