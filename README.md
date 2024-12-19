@@ -7,4 +7,4 @@
 - **NumPy**
 - **Pandas**
 - **Veri Görselleştirme: Seaborn & Matplotlib**
-- **Gelişmiş Fonksiyonel Keşifçi Veri Analizi (Advanced Functional EDA)**
+- **Gelişmiş Fonksiyonel Keşifçi Veri Analizi - (Advanced Functional EDA)**
