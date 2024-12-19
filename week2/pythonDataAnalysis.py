@@ -499,6 +499,7 @@ df.loc[:, df.columns.str.contains('Age')].head()
 #######################
 # Value'lar Üzerinde İşlemler
 #######################
+
 df = pd.read_csv('datasets/titanic.csv')
 df["Age2"] = df["Age"] ** 2
 df["Age3"] = df["Age"] / df["Age2"]
